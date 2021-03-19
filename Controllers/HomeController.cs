@@ -10,7 +10,7 @@ namespace Auth.Controllers
         [Route("[controller]/[action]")]
         public IActionResult Index()
         {
-            return Content(User.Identity.Name);
+            return Content(User.Identity!.Name);
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Auth.Models;
@@ -89,7 +91,8 @@ namespace Auth.Controllers
         {
             var claims = new List<Claim>
             {
-                new Claim(ClaimsIdentity.DefaultNameClaimType, userName)
+                new(ClaimsIdentity.DefaultNameClaimType, userName),
+                new("login-time", DateTime.UtcNow.ToString(CultureInfo.InvariantCulture))
             };
 
             var id = new ClaimsIdentity(claims, "ApplicationCookie", ClaimsIdentity.DefaultNameClaimType,
