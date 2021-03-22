@@ -1,1 +1,9 @@
-﻿<h2>Гы</h2>
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<p>@User.Identity!.Name</p>
+
+<p>@User.Claims.Where(it => it.Type == "login-time").Select(it => it.Value).FirstOrDefault()</p>
+
+<a class="btn btn-outline-danger btn-sm" asp-action="Logout" asp-controller="Account">Logout</a>

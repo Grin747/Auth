@@ -44,7 +44,7 @@ namespace Auth.Controllers
                 return View(loginModel);
             }
 
-            if (user.Password == loginModel.Password)
+            if (user.Password != loginModel.Password)
             {
                 ModelState.AddModelError("no-user", "Unvalid Password");
                 return View(loginModel);

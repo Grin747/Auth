@@ -47,6 +47,8 @@ namespace Auth
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute("redirect", "[controller=Home]/[action=Index]");
+                
                 endpoints.MapControllers();
             });
         }

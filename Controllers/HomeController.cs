@@ -4,13 +4,13 @@ using Microsoft.AspNetCore.Mvc;
 namespace Auth.Controllers
 {
     [Authorize]
+    [Route("[controller]/[action]")]
     public class HomeController : Controller
     {
         [HttpGet]
-        [Route("[controller]/[action]")]
         public IActionResult Index()
         {
-            return Content(User.Identity!.Name);
+            return View();
         }
     }
 }
